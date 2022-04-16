@@ -6,44 +6,93 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:03:15 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/16 09:12:00 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/04/16 20:18:09 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <fcntl.h>
 #include "so_long.h"
+#include <unistd.h>
 
-int	ft_strlen_int(char *s)
+int	ft_size(void)
 {
-	int	i;
+	t_mlc	var;
 
+	var.fd = open("test.txt", O_RDONLY);
+	var.red = read(var.fd, var.buffer, 1024);
+	var.size = 0;
+	while (var.buffer[var.size] != '\n')
+		var.size++;
+	return (var.size);
+}
+
+int	ft_how_many_line(void)
+{
+	t_mlc	var;
+	int		cpt;
+	int		i;
+
+	cpt = 0;
+	var.fd = open("test.txt", O_RDONLY);
+	var.red = read(var.fd, var.buffer, 1024);
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
+	while (var.buffer[i] != '\0')
+	{
+		if (var.buffer[i] == '\n')
+		{
+			cpt++;
+		}
 		i++;
-	return (i);
+	}
+	return cpt;
 }
 
 char *ft_create_malloc(void)
 {
-	char *tab;
-	int	fd;
-	fd = open("test.txt", O_RDONLY);
-	tab = malloc(sizeof(char) * ft_strlen_int(get_next_line(fd)));
-	return (tab);
+	t_mlc	var;
+	var.tab = malloc(sizeof(char) * (ft_size() + 1));
+	return (var.tab);
+}
+
+int	ft_is_forbidden_char(char *tab)
+{
+	int	i;
+
+	i = 0;
+	if (!tab)
+		return (0);
+	while (i < ft_size())
+	{
+		if (tab[i] != '0' && tab[i] != '1' && tab[i] != 'C'
+			&& tab[i] != 'E' && tab[i] != 'P')
+		{
+			return (1);
+		}
+		i++;
+	}
+		return(0);
 }
 
 int	main(void)
 {
-	int 	fd;
+	t_mlc	var;
 	char	*tab;
-	int		size;
+	int		i;
+	int		j;
 
-	
-	fd = open("test.txt", O_RDONLY);
+	j = 0;
+	var.fd = open("test.txt", O_RDONLY);
 	tab = ft_create_malloc();
-	tab = ft_read_to_backup_str(fd,"");
-	printf("%s\n",tab);
+	i = 0;
+	while (i <= ft_how_many_line())
+	{
+		tab = get_next_line(var.fd);
+		if (ft_is_forbidden_char(tab) == 1)
+		{
+			printf("Error\n");
+			break;
+		}
+		i++;
+	}
 }
