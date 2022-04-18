@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:03:15 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/16 20:18:09 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/04/18 09:30:20 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(void)
 	while (i <= ft_how_many_line())
 	{
 		tab = get_next_line(var.fd);
-		if (ft_is_forbidden_char(tab) == 1)
+		if (ft_is_forbidden_char(tab))
 		{
 			printf("Error\n");
 			break;

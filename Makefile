@@ -6,15 +6,20 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/04/15 15:17:21 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/04/18 14:03:42 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-SRCS	=	map.c\
-			get_next_line.c\
-			get_next_line_utils.c\
+SRCS	=	main.c\
+			get_next_line/get_next_line.c\
+			get_next_line/get_next_line_utils.c\
+			parsing/ft_check_wall.c\
+			parsing/ft_is_forbidden_char.c\
+			parsing/ft_is_no_equal_line.c\
+			parsing/ft_is_square.c\
+			parsing/parsing_utils.c\
 
 OBJS= $(SRCS:.c=.o)
 
