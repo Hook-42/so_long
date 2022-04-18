@@ -6,7 +6,7 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/04/18 14:03:42 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/04/18 16:48:04 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ SRCS	=	main.c\
 			parsing/ft_is_no_equal_line.c\
 			parsing/ft_is_square.c\
 			parsing/parsing_utils.c\
+			parsing/ft_putstr_fd.c\
+			parsing/ft_check_ber_format.c\
+			parsing/ft_parsing_manager.c\
 
 OBJS= $(SRCS:.c=.o)
 

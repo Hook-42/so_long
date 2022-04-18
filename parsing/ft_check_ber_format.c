@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_check_ber_format.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 13:37:06 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 16:47:28 by ceatgie          ###   ########.fr       */
+/*   Created: 2022/04/18 16:15:51 by ceatgie           #+#    #+#             */
+/*   Updated: 2022/04/18 16:55:32 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-int	main(int argc, char *argv[])
+/*
+*	check the last 4 characters of argv[2] to see if it is  a .ber file
+*/
+
+int	ft_check_ber_format(char *argv)
 {
-	ft_parsing_manager(argc,argv);
+	int	end;
+	end = ft_strlen_int(argv) - 1;
+	if (argv[end] != 'r' || argv[end - 1] != 'e' || argv[end - 2] != 'b'
+		|| argv[end - 3] != '.')
+		return (1);
 	return (0);
 }
-	

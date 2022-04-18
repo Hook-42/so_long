@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:04:42 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 13:51:16 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/04/18 16:49:53 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <mlx.h>
 # include <fcntl.h>
 # include <unistd.h>
+
+# define ERROR_WALL 1
+# define ERROR_CHAR 2
+# define ERROR_LINE 3
+# define ERROR_SQUARE 4
+# define ERROR_FORMAT 5
+# define ERROR_ARG 6
 
 typedef struct s_data
 {
@@ -51,15 +58,16 @@ char	*ft_read_to_backup_str(int fd, char *backup_str);
 //					Parsing
 
 
-int	ft_check_wall(char *argv);
-int	ft_is_forbidden_char(char *argv);
-int	ft_is_no_equal_line(char *argv);
-int	ft_is_square(char *argv);
-int	ft_size(char *argv);
-int	ft_strlen_int(char *s);
-int	ft_how_many_line(char *argv);
-char *ft_create_malloc(char *argv);
-
-
+int		ft_check_wall(char *argv);
+int		ft_is_forbidden_char(char *argv);
+int		ft_is_no_equal_line(char *argv);
+int		ft_is_square(char *argv);
+int		ft_size(char *argv);
+int		ft_strlen_int(char *s);
+int		ft_how_many_line(char *argv);
+char 	*ft_create_malloc(char *argv);
+void	ft_putstr_fd(char *s, int fd);
+int		ft_check_ber_format(char *argv);
+void	ft_parsing_manager(int argc, char *argv[]);
 
 #endif
