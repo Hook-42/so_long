@@ -6,7 +6,7 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/04/18 16:48:04 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/04/25 12:11:01 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	main.c\
 			parsing/ft_putstr_fd.c\
 			parsing/ft_check_ber_format.c\
 			parsing/ft_parsing_manager.c\
+			wall/ft_create_wall.c\
 
 OBJS= $(SRCS:.c=.o)
 

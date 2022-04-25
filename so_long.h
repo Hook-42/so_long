@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:04:42 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 16:49:53 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/04/25 14:21:19 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ typedef struct s_data
 	void	*img;
 	void	*mlx;
 	void	*win;
+	int		win_height;
+	int		win_weight;
 	int		height;
 	int		weight;
+	int		x;
+	int		y;
 }			t_data;
 
 typedef struct s_mlc
@@ -69,5 +73,10 @@ char 	*ft_create_malloc(char *argv);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_check_ber_format(char *argv);
 void	ft_parsing_manager(int argc, char *argv[]);
+
+
+//					Wall
+
+void	ft_create_wall(t_data ptr, char *argv);
 
 #endif
