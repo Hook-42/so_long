@@ -6,43 +6,29 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 13:19:29 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 13:52:17 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/09 18:39:06 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 /*
-*	Check if every line of FileDescriptor are equal
+*	Check if every line of map are equal
 */
 
-int	ft_is_no_equal_line(char *argv)
+int	ft_is_no_equal_line(t_data *var)
 {
-	int		i;
-	t_mlc	var;
-	char	*tab;
+	int	size;
+	int	i;
 
-	var.fd = open(argv, O_RDONLY);
-	tab = ft_create_malloc(argv);
-	i = 0;
-	if(!tab)
-		return (1);
-	while (i < ft_how_many_line(argv))
+	size = ft_strlen_int(var->tab[0]);
+	while (i < var->line)
 	{
-		tab = get_next_line(var.fd);
-		if (ft_strlen_int(tab) != ft_size(argv) + 1)
-		{
-			free(tab);
+		if (ft_strlen_int(var->tab[i]) != size)
 			return (1);
-		}
 		i++;
 	}
-	tab = get_next_line(var.fd);
-	if (ft_strlen_int(tab) != ft_size(argv))
-	{	
-		free(tab);
-		return (1);
-	}
-	free(tab);
+	if (ft_strlen_int(var->tab[i]) != size - 1)
+			return (1);
 	return (0);
 }

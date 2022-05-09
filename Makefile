@@ -6,13 +6,14 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/04/25 12:11:01 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/04/27 12:24:39 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
 SRCS	=	main.c\
+			ft_init_struct.c\
 			get_next_line/get_next_line.c\
 			get_next_line/get_next_line_utils.c\
 			parsing/ft_check_wall.c\
@@ -22,8 +23,11 @@ SRCS	=	main.c\
 			parsing/parsing_utils.c\
 			parsing/ft_putstr_fd.c\
 			parsing/ft_check_ber_format.c\
+			parsing/ft_check_cpe.c\
 			parsing/ft_parsing_manager.c\
-			wall/ft_create_wall.c\
+			create_map/ft_create_lines.c\
+			create_map/ft_create_map_in_tab.c\
+			game/ft_mooving.c\
 
 OBJS= $(SRCS:.c=.o)
 

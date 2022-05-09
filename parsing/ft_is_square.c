@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 13:25:42 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 13:52:23 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/09 18:58:38 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 *	Checks if the number of rows and columns are equal
 */
 
-int	ft_is_square(char *argv)
+int	ft_is_square(t_data *var)
 {
-	t_mlc	var;
-	if (ft_size(argv) == ft_how_many_line(argv) + 1)
+	if (var->size == var->line + 1)
 		return(1);
 	return (0);
 }

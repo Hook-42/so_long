@@ -6,58 +6,35 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 13:15:06 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 13:53:35 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/09 18:58:29 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 /*
-*	Only exist because of 25 line
+*	Check if forbidden character is in map
 */
 
-static int	ft_is_forbidden_char_else(char *tab, char *argv)
+int	ft_is_forbidden_char(t_data *var)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	if (!tab)
-		return (0);
-	while (i < ft_size(argv))
+	j = 0;
+	while (i <= var->line)
 	{
-		if (tab[i] != '0' && tab[i] != '1' && tab[i] != 'C'
-			&& tab[i] != 'E' && tab[i] != 'P')
+		while (j < var->size)
 		{
-			return (1);
+			if (!(var->tab[i][j] == '1' || var->tab[i][j] == '0'
+				|| var->tab[i][j] == 'C' || var->tab[i][j] == 'P'
+				|| var->tab[i][j] == 'E'))
+				return (1);
+			j++;
 		}
 		i++;
+		j = 0;
 	}
-		return(0);
-}
-
-/*
-*	Check if forbidden character is in filedescriptor
-*/
-
-int	ft_is_forbidden_char(char *argv)
-{
-	t_mlc	var;
-	char	*tab;
-	int		i;
-
-	var.fd = open(argv, O_RDONLY);
-	tab = ft_create_malloc(argv);
-	i = 0;
-	while (i <= ft_how_many_line(argv))
-	{
-		tab = get_next_line(var.fd);
-		if (ft_is_forbidden_char_else(tab, argv))
-		{
-			free(tab);
-			return (1);
-		}
-		i++;
-	}
-	free(tab);
 	return (0);
 }

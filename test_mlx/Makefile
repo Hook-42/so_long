@@ -6,13 +6,13 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 17:24:51 by ceatgie           #+#    #+#              #
-#    Updated: 2022/04/15 17:39:41 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/04/27 11:27:15 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	so_long
 
-SRCS	=	hook.c
+SRCS	=	hooking.c
 
 OBJS= $(SRCS:.c=.o)
 
