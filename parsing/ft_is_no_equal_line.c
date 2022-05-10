@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 13:19:29 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/09 18:39:06 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 00:54:45 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	ft_is_no_equal_line(t_data *var)
 		i++;
 	}
 	if (ft_strlen_int(var->tab[i]) != size - 1)
-			return (1);
+		return (1);
 	return (0);
 }

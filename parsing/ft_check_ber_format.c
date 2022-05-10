@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:15:51 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/04/18 16:55:32 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 00:55:04 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 int	ft_check_ber_format(char *argv)
 {
 	int	end;
+
 	end = ft_strlen_int(argv) - 1;
 	if (argv[end] != 'r' || argv[end - 1] != 'e' || argv[end - 2] != 'b'
 		|| argv[end - 3] != '.')

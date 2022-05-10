@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:04:42 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/09 18:56:46 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 00:39:02 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ typedef struct s_data
 {
 	int		nb_collect;
 	void	*img;
-	void	*img_asteroid;
-	void	*img_exit;
-	void	*img_soucoupe;
-	void	*img_fusee;
-	void	*img_vide;
+	void	*ast;
+	void	*exit;
+	void	*scp;
+	void	*fusee;
+	void	*vide;
+	void	*k;
 	void	*mlx;
 	void	*win;
 	int		win_height;
@@ -51,6 +52,8 @@ typedef struct s_data
 	int		j;
 	int		size;
 	int		line;
+	int		max_c;
+	int		nb_moove;
 	
 }			t_data;
 
@@ -91,20 +94,26 @@ int 	ft_check_cpe(t_data *var);
 int		ft_is_no_c(t_data *var);
 
 
+
 //					MAP
 
 void	ft_create_lines(t_data *ptr, char *argv);
 char	**ft_create_map_in_tab(t_data *var);
 
 
-//					MOOVE
+//					GAME
 
+void	ft_putchar_fd(char c, int fd);
 void	ft_top_moove(t_data *var);
 void	ft_left_moove(t_data *var);
+void	ft_right_moove(t_data *var);
+void	ft_bot_moove(t_data *var);
 void	ft_mooving(t_data ptr);
 int 	ft_get_x_pos(char *argv, t_data *var);
 int 	ft_get_y_pos(char *argv, t_data *var);
 int		key_hook(int keycode, t_data *var);
-void	ft_init_tab(int argc, char *argv[], t_data *var);
+void	ft_init_struct(int argc, char *argv[], t_data *var);
 int		ft_how_many_c(t_data *var);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_free(t_data *var);
 #endif

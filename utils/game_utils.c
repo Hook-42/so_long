@@ -1,47 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_cpe.c                                     :+:      :+:    :+:   */
+/*   game_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 09:45:40 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 00:55:59 by ceatgie          ###   ########.fr       */
+/*   Created: 2022/05/10 14:22:12 by ceatgie           #+#    #+#             */
+/*   Updated: 2022/05/11 00:58:04 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 /*
-**	browse the map and stop at the first C
+**	is used to count the number of collectibles to give permission
+**	to leave the game or not
 */
 
-int	ft_is_no_c(t_data *var)
+int	ft_how_many_c(t_data *var)
 {
 	int	i;
 	int	j;
+	int	nb_c;
 
 	i = 0;
 	j = 0;
-	while (i <= (var->line))
+	nb_c = 0;
+	while (i <= var->line)
 	{
 		while (j < var->size)
 		{
 			if (var->tab[i][j] == 'C')
-				return (0);
+				nb_c++;
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	return (1);
+	return (nb_c);
 }
 
 /*
-**	browse the map and stop at the first P
+**	is used to find the abscissa of P
 */
 
-static int	ft_is_no_p(t_data *var)
+int	ft_get_x_pos(char *argv, t_data *var)
 {
 	int	i;
 	int	j;
@@ -53,20 +56,20 @@ static int	ft_is_no_p(t_data *var)
 		while (j < var->size)
 		{
 			if (var->tab[i][j] == 'P')
-				return (0);
+				return (j * 50);
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	return (1);
+	return (-50);
 }
 
 /*
-**	browse the map and stop at the first E
+**	is used to find the ordinate of P
 */
 
-static int	ft_is_no_e(t_data *var)
+int	ft_get_y_pos(char *argv, t_data *var)
 {
 	int	i;
 	int	j;
@@ -77,24 +80,12 @@ static int	ft_is_no_e(t_data *var)
 	{
 		while (j < var->size)
 		{
-			if (var->tab[i][j] == 'E')
-				return (0);
+			if (var->tab[i][j] == 'P')
+				return (i * 50);
 			j++;
 		}
 		i++;
 		j = 0;
 	}
-	return (1);
-}
-
-/*
-**	check if at least one cpe check function returns 0
-*/
-
-int	ft_check_cpe(t_data *var)
-{
-	if (ft_is_no_c(var) || ft_is_no_e(var)
-		|| ft_is_no_p(var))
-		return (1);
-	return (0);
+	return (-50);
 }

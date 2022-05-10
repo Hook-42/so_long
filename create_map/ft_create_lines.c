@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:15:35 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/09 14:25:49 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 00:38:16 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,31 @@
 **	Only exists because of 25 lines
 */
 
-static void ft_create_lines_else(t_data *ptr, int i, int j)
+static void	ft_create_lines_else(t_data *ptr, int i, int j)
 {
 	if (ptr->tab[i][j] == '1')
 	{
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img_asteroid, ptr->x, ptr->y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->ast, ptr->x, ptr->y);
 	}
 	else if (ptr->tab[i][j] == '0')
 	{
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img_vide, ptr->x, ptr->y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->vide, ptr->x, ptr->y);
 	}
 	else if (ptr->tab[i][j] == 'C')
 	{
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img_soucoupe, ptr->x, ptr->y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->scp, ptr->x, ptr->y);
 	}
 	else if (ptr->tab[i][j] == 'P')
 	{
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img_fusee, ptr->x, ptr->y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->fusee, ptr->x, ptr->y);
 	}
 	else if (ptr->tab[i][j] == 'E')
 	{
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->img_exit, ptr->x, ptr->y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit, ptr->x, ptr->y);
+	}
+	else if (ptr->tab[i][j] == 'K')
+	{
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->k, ptr->x, ptr->y);
 	}
 }
 
@@ -44,7 +48,7 @@ static void ft_create_lines_else(t_data *ptr, int i, int j)
 **	iterates over the double array and assigns each character an image
 */
 
-void ft_create_lines(t_data *ptr, char *argv)
+void	ft_create_lines(t_data *ptr, char *argv)
 {
 	int		i;
 	int		j;
