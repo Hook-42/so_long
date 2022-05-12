@@ -6,7 +6,7 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/05/11 00:04:09 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/05/11 16:05:04 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS	=	main.c\
 			game/ft_right_moove.c\
 			game/ft_top_moove.c\
 			utils/ft_putstr_fd.c\
+			utils/ft_exit.c\
 			utils/game_utils.c\
 			utils/parsing_utils.c\
 			utils/ft_putnbr_fd.c\

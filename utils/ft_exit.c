@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_map_in_tab.c                             :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 12:02:40 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 19:05:03 by ceatgie          ###   ########.fr       */
+/*   Created: 2022/05/11 16:03:55 by ceatgie           #+#    #+#             */
+/*   Updated: 2022/05/11 16:04:17 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-/*
-**	the function creates a double array and takes the map.
-**	which allows to read the map in a table rather than in the fd directly
-*/
-
-char	**ft_create_map_in_tab(t_data *var)
+int	ft_exit(t_data *var)
 {
-	int		i;
-	char	**tab;
-	int		fd;
+	int	i;
 
-	i = 0;
-	tab = malloc(sizeof(char *) * (var->line + 1));
-	if (!tab)
-		return (NULL);
-	fd = open(var->argv, O_RDONLY);
 	i = 0;
 	while (i <= var->line)
 	{
-		tab[i] = get_next_line(fd);
+		free(var->tab[i]);
 		i++;
 	}
-	close(fd);
-	return (tab);
+	free(var->tab);
+	mlx_clear_window(var->mlx, var->win);
+	mlx_destroy_image(var->mlx, var->ast);
+	mlx_destroy_image(var->mlx, var->exit);
+	mlx_destroy_image(var->mlx, var->scp);
+	mlx_destroy_image(var->mlx, var->fusee);
+	mlx_destroy_image(var->mlx, var->vide);
+	mlx_destroy_image(var->mlx, var->k);
+	mlx_destroy_window(var->mlx, var->win);
+	mlx_destroy_display(var->mlx);
+	free(var->mlx);
+	exit(SUCCES);
+	return (SUCCES);
 }

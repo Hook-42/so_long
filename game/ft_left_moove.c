@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:36:51 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 00:51:42 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 15:31:18 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,13 @@ static void	ft_for_e(t_data *var)
 		var->tab[var->i][var->j - 1] = 'K';
 		var->tab[var->i][var->j] = '0';
 		var->j -= 1;
+		if (var->k != NULL)
+			mlx_destroy_image(var->mlx, var->k);
 		var->k = mlx_xpm_file_to_image(var->mlx, "./assets/k_left.xpm",
 				&var->height, &var->weight);
 		return ;
 	}
-	ft_free(var);
+	ft_exit(var);
 }
 
 /*

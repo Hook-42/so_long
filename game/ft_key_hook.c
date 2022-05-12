@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 16:15:11 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 00:45:38 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:02:55 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	ft_for_w(t_data *var)
 	ft_putnbr_fd(var->nb_moove, 1);
 	ft_putchar_fd('\n', 1);
 	ft_top_moove(var);
+	mlx_destroy_image(var->mlx, var->fusee);
 	var->fusee = mlx_xpm_file_to_image(var->mlx, "./assets/fusee.xpm",
 			&var->height, &var->weight);
 	ft_create_lines(var, var->argv);
@@ -37,6 +38,7 @@ static void	ft_for_d(t_data *var)
 	ft_putnbr_fd(var->nb_moove, 1);
 	ft_putchar_fd('\n', 1);
 	ft_right_moove(var);
+	mlx_destroy_image(var->mlx, var->fusee);
 	var->fusee = mlx_xpm_file_to_image(var->mlx, "./assets/fusee_right.xpm",
 			&var->height, &var->weight);
 	ft_create_lines(var, var->argv);
@@ -52,6 +54,7 @@ static void	ft_for_s(t_data *var)
 	ft_putnbr_fd(var->nb_moove, 1);
 	ft_putchar_fd('\n', 1);
 	ft_bot_moove(var);
+	mlx_destroy_image(var->mlx, var->fusee);
 	var->fusee = mlx_xpm_file_to_image(var->mlx, "./assets/fusee_bot.xpm",
 			&var->height, &var->weight);
 	ft_create_lines(var, var->argv);
@@ -67,6 +70,7 @@ static void	ft_for_a(t_data *var)
 	ft_putnbr_fd(var->nb_moove, 1);
 	ft_putchar_fd('\n', 1);
 	ft_left_moove(var);
+	mlx_destroy_image(var->mlx, var->fusee);
 	var->fusee = mlx_xpm_file_to_image(var->mlx, "./assets/fusee_left.xpm",
 			&var->height, &var->weight);
 	ft_create_lines(var, var->argv);
@@ -83,7 +87,7 @@ int	key_hook(int keycode, t_data *var)
 	int		j;
 
 	if (keycode == 65307)
-		ft_free(var);
+		ft_exit(var);
 	if (keycode == 119)
 		ft_for_w(var);
 	if (keycode == 100)

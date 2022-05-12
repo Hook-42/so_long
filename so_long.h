@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 15:04:42 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 00:39:02 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:17:08 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define ERROR_FORMAT 5
 # define ERROR_ARG 6
 # define ERROR_CPE 7
+# define SUCCES 0
 
 typedef struct s_data
 {
@@ -115,5 +116,6 @@ int		key_hook(int keycode, t_data *var);
 void	ft_init_struct(int argc, char *argv[], t_data *var);
 int		ft_how_many_c(t_data *var);
 void	ft_putnbr_fd(int n, int fd);
-void	ft_free(t_data *var);
+int		ft_exit(t_data *var);
+
 #endif
