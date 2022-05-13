@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:26:05 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 15:31:27 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/13 12:27:32 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@
 
 static void	ft_for_k(t_data *var)
 {
-	var->tab[var->i - 1][var->j] = 'P';
-	var->tab[var->i][var->j] = 'E';
-	var->i -= 1;
+	if (!(var->tab[var->i + 1][var->j] == '1'))
+	{
+		var->tab[var->i - 1][var->j] = 'P';
+		var->tab[var->i][var->j] = 'E';
+		var->i -= 1;
+	}
 	return ;
 }
 

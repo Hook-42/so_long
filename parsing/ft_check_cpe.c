@@ -6,7 +6,7 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 09:45:40 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 00:55:59 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/13 12:54:35 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,34 @@ int	ft_check_cpe(t_data *var)
 		|| ft_is_no_p(var))
 		return (1);
 	return (0);
+}
+
+/*
+**	check if there are multiple P in the map
+*/
+
+int	ft_check_p(t_data *var)
+{
+	int	i;
+	int	j;
+	int	cpt;
+
+	i = 0;
+	j = 0;
+	cpt = 0;
+	while (i <= var->line)
+	{
+		while (j < var->size)
+		{
+			if (var->tab[i][j] == 'P')
+				cpt++;
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	if (cpt > 1)
+		return (1);
+	else
+		return (0);
 }

@@ -6,11 +6,15 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:03:55 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 16:04:17 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/13 12:52:31 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+/*
+**	exit the program cleanly by freeing everything that was used by the program
+*/
 
 int	ft_exit(t_data *var)
 {
@@ -35,4 +39,23 @@ int	ft_exit(t_data *var)
 	free(var->mlx);
 	exit(SUCCES);
 	return (SUCCES);
+}
+
+/*
+**	exit the program cleanly by freeing everything that was used
+**	by the parsing manager
+*/
+
+int	ft_exit_parsing(t_data *var)
+{
+	int	i;
+
+	i = 0;
+	while (i <= var->line)
+	{
+		free(var->tab[i]);
+		i++;
+	}
+	free(var->tab);
+	exit(FAILURE);
 }

@@ -6,11 +6,15 @@
 /*   By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 12:09:36 by ceatgie           #+#    #+#             */
-/*   Updated: 2022/05/11 15:04:44 by ceatgie          ###   ########.fr       */
+/*   Updated: 2022/05/13 12:51:12 by ceatgie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+/*
+**	Only exists because of 25 lines
+*/
 
 static void	ft_init_struct_else(t_data *var)
 {
@@ -30,18 +34,31 @@ static void	ft_init_struct_else(t_data *var)
 	var->nb_moove = 0;
 }
 
+/*
+**	initializes everything that allows the proper functioning of the game
+*/
+
 void	ft_init_struct(int argc, char *argv[], t_data *var)
 {
-	var->argc = argc;
 	var->nb_collect = 0;
-	var->argv = argv[1];
-	var->size = ft_size(var->argv);
-	var->line = ft_how_many_line(var->argv);
-	var->tab = ft_create_map_in_tab(var);
 	var->i = (ft_get_y_pos(argv[1], var)) / 50;
 	var->j = (ft_get_x_pos(argv[1], var)) / 50;
 	var->mlx = mlx_init();
 	var->win = mlx_new_window(var->mlx, ft_size(argv[1]) * 50,
 			(ft_how_many_line(argv[1]) + 1) * 50, "so_long");
 	ft_init_struct_else(var);
+}
+
+/*
+**	initializes everything that allows the parsing manager
+**	to work properly
+*/
+
+void	ft_init_tab(int argc, char *argv[], t_data *var)
+{
+	var->argc = argc;
+	var->argv = argv[1];
+	var->size = ft_size(var->argv);
+	var->line = ft_how_many_line(var->argv);
+	var->tab = ft_create_map_in_tab(var);
 }

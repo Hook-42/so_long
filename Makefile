@@ -6,7 +6,7 @@
 #    By: ceatgie <ceatgie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 13:44:17 by ceatgie           #+#    #+#              #
-#    Updated: 2022/05/11 16:05:04 by ceatgie          ###   ########.fr        #
+#    Updated: 2022/05/13 12:16:33 by ceatgie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	=	main.c\
 			parsing/ft_is_square.c\
 			parsing/ft_check_ber_format.c\
 			parsing/ft_check_cpe.c\
+			parsing/ft_check_ber.c\
 			parsing/ft_parsing_manager.c\
 			create_map/ft_create_lines.c\
 			create_map/ft_create_map_in_tab.c\
